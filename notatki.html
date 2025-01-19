@@ -1,0 +1,74 @@
+<h1 id="kolorowanie-grafów">Kolorowanie grafów</h1>
+<h2 id="słownik-pojęć">Słownik pojęć</h2>
+<ul>
+<li>Graf SHC (Slightly Hard to Color) - graf, dla którego algorytm
+kolorujący w zależności do jego implementacji może <strong>(lecz nie
+musi)</strong> zwrócić nieoptymalne rozwiązanie</li>
+<li>Graf HC (Hard to Color) - graf, dla którerego algorytm kolorujący
+<strong>na pewno</strong> zwróci nieoptymalne rozwiązanie</li>
+</ul>
+<h2 id="algorytmy">Algorytmy</h2>
+<h3 id="lf-largest-first">LF (Largest First)</h3>
+<p>Algorytm ten koloruje wierzchołki zachłannie zaczynając od
+wierzchołka o największym stopniu, a kończąc na tym o najmniejszym. Jego
+złozoność obliczeniowa wynosi <span
+class="math inline"><em>O</em>(<em>m</em> + <em>n</em>)</span></p>
+<h4
+id="najmniejszym-grafem-shc-dla-algorytmu-lf-jest-graf-p_6">Najmniejszym
+grafem SHC dla algorytmu LF jest graf <span
+class="math inline"><em>P</em><sub>6</sub></span>:</h4>
+<figure>
+<img src="image.png" alt="Graf P_6" />
+<figcaption aria-hidden="true">Graf <span
+class="math inline"><em>P</em><sub>6</sub></span></figcaption>
+</figure>
+<p>Algorytm LF może pokolorować ten graf w kolejności: <span
+class="math inline"><em>v</em><sub>2</sub>, <em>v</em><sub>3</sub>, <em>v</em><sub>4</sub>...</span>
+lub <span
+class="math inline"><em>v</em><sub>2</sub>, <em>v</em><sub>4</sub>, <em>v</em><sub>3</sub>, ...</span>
+natomiast w przypadku kolorowania według według tej drugiej kolejności,
+algorytm zwróci nieoptymalne rozwiązanie (tj. użyje 3 kolorów zamiast
+dwóch)</p>
+<h4
+id="najmniejszym-grafem-hc-dla-algorytmu-lf-jest-koperta">Najmniejszym
+grafem HC dla algorytmu LF jest “koperta”:</h4>
+<p><img src="image-1.png" alt="“koperta” pokolorowana algorytmem LF" />
+<img src="image-2.png" alt="Optymalne pokolorowanie “koperty”" /></p>
+<h3 id="sl-smallest-last">SL (Smallest Last)</h3>
+<p>Algorytm: - Redukuj graf poprzez wyciąganie z niego wierzchołków o
+najmniejszych stopniach tak długo, aż graf będzie pusty, zapamiętując
+przy tym kolejność wyciągania wierzchołków - koloruj zachłannie
+wierzchołki wedle tej kolejności</p>
+<p>Schemat kolorowania grafu: <img src="image-4.png"
+alt="Kolorowany graf" /> Kolejność wyciągania wierzchołków: <span
+class="math inline"><em>v</em><sub>6</sub>, <em>v</em><sub>5</sub>, <em>v</em><sub>4</sub>, <em>v</em><sub>3</sub>, <em>v</em><sub>2</sub>, <em>v</em><sub>7</sub>, <em>v</em><sub>1</sub></span></p>
+<p>Algorytm ten optymalnie koloruje grafy Johnsona.</p>
+<h4
+id="najmniejszym-grafem-shc-dla-algorytmu-sl-jest-pryzma">Najmniejszym
+grafem SHC dla algorytmu SL jest pryzma</h4>
+<figure>
+<img src="image-5.png" alt="Optymalnie pokolorowana Pryzma" />
+<figcaption aria-hidden="true">Optymalnie pokolorowana
+Pryzma</figcaption>
+</figure>
+<h4
+id="najmniejszym-grafem-hc-dla-algorytmu-sl-jest-pryzmatoid-znany-również-jako-graf-kubaliczny-lub-logo-kaimsu">Najmniejszym
+grafem HC dla algorytmu SL jest pryzmatoid (znany również jako graf
+Kubaliczny lub logo KAiMSu)</h4>
+<p><img src="image-6.png"
+alt="Graf kubaliczny kolorowany algorytmem SL" /> <img src="image-7.png"
+alt="Optymalnie pokolorowany graf kubaliczny" /></p>
+<h3 id="funkcja-dobroci">Funkcja dobroci</h3>
+<p>Jest to funkcja służąca do ocenienia optymalności rozwiązań danego
+algorytmu względem wielkości grafu.</p>
+<p><span class="math inline">$D(n) = max_{|G| = n}\{
+\frac{A(G)}{\chi(G)}\}$</span></p>
+<p>Tempo wzrostu funkcji dobroci dla algorytmów LF i SL wynosi <span
+class="math inline"><em>O</em>(<em>n</em>)</span>. Natomiast rozmiary
+grafów SHC i HC określają nam, przy jakim n nasz algorytm zaczyna dawać
+nieoptymalne rozwiązania (tj. <span
+class="math inline"><em>D</em>(<em>n</em>)</span> dla <span
+class="math inline"><em>n</em> &lt; |<em>H</em><em>C</em>|</span> wynosi
+1)</p>
+<p><a href="https://obrotowy.github.io/paa/zadania.pdf">Opracowania
+zadań</a></p>
